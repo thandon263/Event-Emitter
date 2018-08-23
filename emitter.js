@@ -1,13 +1,13 @@
-function Emmitter() {
+function Emitter() {
     this.events = {}
 }
 
-Emmitter.prototype.on = function(type, listener) {
+Emitter.prototype.on = function(type, listener) {
     this.events[type] = this.events[type] || [];
     this.events[type].push(listener);
 }
 
-Emmitter.prototype.emit = function(type) {
+Emitter.prototype.emit = function(type) {
     if (this.events[type]) {
         this.events[type].forEach(listener => {
             listener();
@@ -15,4 +15,4 @@ Emmitter.prototype.emit = function(type) {
     }
 }
 
-module.exports = Emmitter;
+module.exports = Emitter;
